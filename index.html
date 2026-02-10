@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bienvenue chez Laura — Bayonne</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --clay: #C4673A;
+    --clay-light: #D4845E;
+    --cream: #FDF6EE;
+    --cream-dark: #F5E6D3;
+    --ink: #2C1810;
+    --ink-soft: #5A3E2B;
+    --sage: #7A8B6F;
+    --sage-light: #E8EDE4;
+    --alert-red: #B8352E;
+    --alert-bg: #FFF0EE;
+    --alert-border: #E8A09A;
+    --warm-white: #FFFCF8;
+    --shadow: rgba(44, 24, 16, 0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 300;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    background: linear-gradient(165deg, var(--clay) 0%, var(--clay-light) 100%);
+    color: var(--cream);
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.3rem;
+    position: relative;
+  }
+
+  .hero .subtitle {
+    font-size: 1.15rem;
+    font-weight: 300;
+    opacity: 0.9;
+    letter-spacing: 0.03em;
+  }
+
+  .hero .location {
+    display: inline-block;
+    margin-top: 1.2rem;
+    padding: 0.4rem 1.2rem;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ---- LAYOUT ---- */
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  /* ---- SECTIONS ---- */
+  section {
+    margin-top: 2.8rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .section-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--clay);
+    color: var(--cream);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .card {
+    background: var(--warm-white);
+    border-radius: 14px;
+    padding: 1.5rem 1.6rem;
+    box-shadow: 0 2px 12px var(--shadow);
+    border: 1px solid rgba(196, 103, 58, 0.08);
+  }
+
+  .card p {
+    margin-bottom: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  .card p:last-child { margin-bottom: 0; }
+
+  .card strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ---- ALERT BOX ---- */
+  .alert {
+    background: var(--alert-bg);
+    border: 2px solid var(--alert-border);
+    border-radius: 14px;
+    padding: 1.3rem 1.5rem;
+    margin-top: 1rem;
+    position: relative;
+  }
+
+  .alert::before {
+    content: '⚠️';
+    position: absolute;
+    top: -12px;
+    left: 16px;
+    background: var(--alert-bg);
+    padding: 0 6px;
+    font-size: 1.1rem;
+  }
+
+  .alert p {
+    color: var(--alert-red);
+    font-weight: 600;
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  .alert p + p { margin-top: 0.5rem; }
+
+  /* ---- WIFI BOX ---- */
+  .wifi-box {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 14px;
+    padding: 1.5rem 1.6rem;
+    font-family: 'Source Sans 3', sans-serif;
+    box-shadow: 0 4px 20px rgba(44, 24, 16, 0.15);
+  }
+
+  .wifi-box .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.6;
+    margin-bottom: 0.2rem;
+  }
+
+  .wifi-box .value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    word-break: break-all;
+  }
+
+  .wifi-box .value:last-child { margin-bottom: 0; }
+
+  /* ---- KEY STEPS ---- */
+  .steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+  }
+
+  .steps li {
+    counter-increment: step;
+    padding: 0.6rem 0 0.6rem 3rem;
+    position: relative;
+    color: var(--ink-soft);
+    border-bottom: 1px solid rgba(196, 103, 58, 0.08);
+  }
+
+  .steps li:last-child { border-bottom: none; }
+
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 28px;
+    height: 28px;
+    background: var(--sage-light);
+    color: var(--sage);
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ---- TIP BOX ---- */
+  .tip {
+    background: var(--sage-light);
+    border-left: 4px solid var(--sage);
+    border-radius: 0 12px 12px 0;
+    padding: 1rem 1.3rem;
+    margin-top: 1rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  .tip strong { color: var(--sage); }
+
+  /* ---- FOOD NOTE ---- */
+  .food-note {
+    background: var(--cream-dark);
+    border-radius: 14px;
+    padding: 1.3rem 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .food-note p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .food-note p:last-child { margin-bottom: 0; }
+
+  /* ---- FOOTER ---- */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--clay-light);
+    font-size: 0.85rem;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 500px) {
+    .hero { padding: 3rem 1.5rem 2.2rem; }
+    .card, .wifi-box, .alert { padding: 1.2rem; }
+    .container { padding: 0 1rem 3rem; }
+  }
+
+  /* ---- TOC ---- */
+  .toc {
+    margin-top: 2.8rem;
+    background: var(--warm-white);
+    border-radius: 14px;
+    padding: 1.5rem 1.6rem;
+    box-shadow: 0 2px 12px var(--shadow);
+    border: 1px solid rgba(196, 103, 58, 0.08);
+  }
+
+  .toc h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .toc-grid a {
+    display: block;
+    padding: 0.55rem 0.8rem;
+    background: var(--cream);
+    border-radius: 8px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .toc-grid a:hover {
+    background: var(--clay);
+    color: var(--cream);
+  }
+
+  /* Smooth scroll */
+  html { scroll-behavior: smooth; }
+
+  section[id] { scroll-margin-top: 1rem; }
+
+  /* ---- PRINT ---- */
+  @media print {
+    body { font-size: 14px; }
+    .hero { padding: 2rem; }
+    .card, .alert, .wifi-box { box-shadow: none; border: 1px solid #ddd; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <h1>Bienvenue chez Laura</h1>
+  <p class="subtitle">Votre guide pour un séjour parfait</p>
+  <span class="location">📍 Quais de l'Adour — Bayonne</span>
+</header>
+
+<div class="container">
+
+  <!-- SOMMAIRE -->
+  <nav class="toc" id="sommaire">
+    <h2>Sommaire</h2>
+    <div class="toc-grid">
+      <a href="#acces">🔑 Accès</a>
+      <a href="#stationnement">🚗 Stationnement</a>
+      <a href="#wifi">📶 WiFi</a>
+      <a href="#tv">📺 Télévision</a>
+      <a href="#cuisine">🍳 Cuisine</a>
+      <a href="#chambre">🛏️ Chambre</a>
+      <a href="#buanderie">🧹 Buanderie</a>
+      <a href="#plantes">🌿 Plantes</a>
+      <a href="#surf">🏄 Surf</a>
+      <a href="#voisinage">🤫 Voisinage</a>
+      <a href="#courses">🛒 Courses</a>
+      <a href="#depart">👋 Départ</a>
+      <a href="#contact">📱 Contact</a>
+    </div>
+  </nav>
+
+  <!-- INTRO -->
+  <section>
+    <div class="card">
+      <p>Hello et bienvenue ! Merci d'avoir choisi mon appartement pour votre séjour à Bayonne. C'est <strong>ma résidence principale</strong>, alors prenez-en soin comme si c'était la vôtre 🙏</p>
+      <p>Vous trouverez ici tout ce qu'il faut savoir pour profiter au mieux. Bonne lecture et bon séjour !</p>
+    </div>
+  </section>
+
+  <!-- ACCÈS -->
+  <section id="acces">
+    <div class="section-header">
+      <div class="section-icon">🔑</div>
+      <h2>Accéder à l'appartement</h2>
+    </div>
+    <div class="card">
+      <p>Le code d'entrée de l'immeuble et le code de la boîte à clés vous seront communiqués par SMS.</p>
+      <ol class="steps">
+        <li>Entrez dans l'immeuble avec le code. <strong>Fermez bien la porte derrière vous en tournant le loquet manuellement.</strong></li>
+        <li>Montez au 2ème étage — c'est la seule porte du palier, impossible de se tromper.</li>
+        <li>La clé se trouve dans la boîte à clés, sur le meuble à chaussures dans l'entrée.</li>
+        <li>Ouvrez la porte, puis <strong>remettez immédiatement la clé dans la boîte à clés</strong>.</li>
+        <li>Pour le séjour, utilisez la <strong>clé disponible dans l'appartement</strong>, sur le plan de travail de la cuisine (porte-clé en liège).</li>
+      </ol>
+    </div>
+    <div class="alert">
+      <p>🚪 <strong>La porte de l'immeuble :</strong> pensez à toujours fermer le loquet manuellement — tournez-le derrière vous en entrant, et tournez le "rond" en sortant. C'est la seule sécurité de l'immeuble !</p>
+      <p>🔐 La clé dans la boîte à clés est une <strong>clé de secours</strong>. Gardez-la toujours dans la boîte pour éviter tout risque de se retrouver enfermé dehors (et d'appeler un serrurier !).</p>
+    </div>
+  </section>
+
+  <!-- STATIONNEMENT -->
+  <section id="stationnement">
+    <div class="section-header">
+      <div class="section-icon">🚗</div>
+      <h2>Stationnement</h2>
+    </div>
+    <div class="card">
+      <p>Vous pouvez vous garer <strong>gratuitement</strong> juste en bas de l'immeuble, dans la rue. Facile !</p>
+    </div>
+  </section>
+
+  <!-- WIFI -->
+  <section id="wifi">
+    <div class="section-header">
+      <div class="section-icon">📶</div>
+      <h2>WiFi</h2>
+    </div>
+    <div class="wifi-box">
+      <div class="label">Nom du réseau</div>
+      <div class="value">Le Cheval C'est Génial</div>
+      <div class="label">Mot de passe</div>
+      <div class="value">badoumtss</div>
+    </div>
+  </section>
+
+  <!-- TV -->
+  <section id="tv">
+    <div class="section-header">
+      <div class="section-icon">📺</div>
+      <h2>Télévision</h2>
+    </div>
+    <div class="card">
+      <ol class="steps">
+        <li>Allumez la TV avec <strong>la télécommande de la télé</strong> — la source est déjà réglée sur HDMI 2.</li>
+        <li>Allumez le décodeur Free, puis utilisez <strong>la télécommande du décodeur</strong> pour naviguer.</li>
+        <li>Netflix est disponible — faites-vous plaisir 🍿</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CUISINE -->
+  <section id="cuisine">
+    <div class="section-header">
+      <div class="section-icon">🍳</div>
+      <h2>Cuisine</h2>
+    </div>
+    <div class="card">
+      <p>La cuisine est équipée de tout le nécessaire, rien de compliqué. Sauf pour le lave-vaisselle, lisez bien ce qui suit :</p>
+    </div>
+    <div class="alert">
+      <p>🚰 <strong>Ne JAMAIS enlever le tuyau dans l'évier !</strong> C'est l'évacuation du lave-vaisselle. Le retirer provoquerait une inondation de la cuisine.</p>
+      <p>🫧 Le lave-vaisselle <strong>se remplit à la main par le haut</strong>. Il y a un tuyau sur le côté à brancher sur le mitigeur de l'évier.</p>
+    </div>
+    <div class="tip">
+      <strong>💡 Astuce :</strong> N'hésitez pas à utiliser le lave-vaisselle régulièrement — le ballon d'eau chaude est petit (deux à trois douches max), ça permet de l'économiser.
+    </div>
+    <div class="food-note">
+      <p>🥖 Vous êtes libres de consommer ce qu'il y a dans les placards !</p>
+      <p>En retour, merci de <strong>remplacer par des produits de qualité équivalente</strong> — j'achète du bio et du local. Si vous consommez du café, merci de remplacer par des <strong>capsules café noir Nespresso</strong>.</p>
+    </div>
+  </section>
+
+  <!-- CHAMBRE & CONFORT -->
+  <section id="chambre">
+    <div class="section-header">
+      <div class="section-icon">🛏️</div>
+      <h2>Chambre & Confort</h2>
+    </div>
+    <div class="card">
+      <p>Les draps sont sur le lit, les serviettes dans la salle de bain.</p>
+      <p>Il y a <strong>deux étagères et un tiroir vides</strong> à votre disposition dans la chambre pour ranger vos affaires. Merci de ne pas utiliser les autres rangements ni toucher à mes affaires personnelles 🙏</p>
+    </div>
+    <div class="tip">
+      <strong>💡 Le surmatelas chauffant :</strong> Un vrai bonheur pour les soirées fraîches ! La télécommande se trouve sur le côté droit du lit. Allumez-le 15-20 minutes avant le coucher pour un confort optimal. Pas besoin de chauffer la chambre.
+    </div>
+  </section>
+
+  <!-- MÉNAGE & BUANDERIE -->
+  <section id="buanderie">
+    <div class="section-header">
+      <div class="section-icon">🧹</div>
+      <h2>Buanderie & Poubelles</h2>
+    </div>
+    <div class="card">
+      <p><strong>Machine à laver :</strong> descendez au rez-de-chaussée, prenez la porte à votre gauche après les escaliers, puis continuez un demi-étage en dessous.</p>
+      <p><strong>Petit jardinet :</strong> en continuant de descendre à la cave, vous accédez à un petit jardin commun à l'immeuble. Plafond bas : attention à la tête ! Plafond bas : attention à la tête !</p>
+      <p><strong>Poubelles :</strong> les bacs de tri et d'ordures ménagères sont juste en bas de l'immeuble. Les conteneurs à verre se trouvent en face, de l'autre côté de la route.</p>
+    </div>
+  </section>
+
+  <!-- PLANTES -->
+  <section id="plantes">
+    <div class="section-header">
+      <div class="section-icon">🌿</div>
+      <h2>Plantes</h2>
+    </div>
+    <div class="card">
+      <p>Si vous y pensez, un petit arrosage des plantes sur le comptoir de la cuisine serait super apprécié !</p>
+    </div>
+  </section>
+
+  <!-- SURF -->
+  <section id="surf">
+    <div class="section-header">
+      <div class="section-icon">🏄</div>
+      <h2>Surf</h2>
+    </div>
+    <div class="card">
+      <p>Vous êtes au Pays Basque, profitez-en ! La <strong>planche orange en mousse</strong> est à votre disposition.</p>
+      <p>En revanche, merci de <strong>ne pas utiliser les planches en dur</strong>.</p>
+    </div>
+  </section>
+
+  <!-- VOISINAGE -->
+  <section id="voisinage">
+    <div class="section-header">
+      <div class="section-icon">🤫</div>
+      <h2>Voisinage</h2>
+    </div>
+    <div class="card">
+      <p>L'immeuble est ancien et les murs sont fins — on entend tout ! Florian, le voisin juste en dessous, a un enfant de 4 ans. Merci de faire attention au bruit, surtout en soirée.</p>
+      <p>Fumer est autorisé <strong>uniquement sur le balcon</strong>, pas à l'intérieur.</p>
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <section id="courses">
+    <div class="section-header">
+      <div class="section-icon">🛒</div>
+      <h2>Courses</h2>
+    </div>
+    <div class="card">
+      <p><strong>Carrefour City Marinadour</strong> — 10 min à pied, ouvert tous les jours (même le dimanche) et tard en soirée.</p>
+      <p>Pour du bio et du local : <strong>L'Épicier Bio</strong> ou <strong>Épicerie Ressources</strong> (produits locaux).</p>
+      <p>Pour les plus grosses courses : <strong>Leclerc</strong>.</p>
+    </div>
+  </section>
+
+  <!-- DÉPART -->
+  <section id="depart">
+    <div class="section-header">
+      <div class="section-icon">👋</div>
+      <h2>Avant de partir</h2>
+    </div>
+    <div class="card">
+      <p>Je nettoie l'appartement avant chaque venue, merci de le laisser dans le même état :</p>
+      <ol class="steps">
+        <li>Enlever les draps du lit.</li>
+        <li>Nettoyer la salle de bain et les toilettes.</li>
+        <li>Nettoyer la cuisine.</li>
+        <li>Laver le sol.</li>
+        <li>Sortir les poubelles.</li>
+        <li>Remettre la clé dans la boîte à clés sur le meuble à chaussures.</li>
+        <li>Bien fermer la porte de l'immeuble (loquet !).</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header">
+      <div class="section-icon">📱</div>
+      <h2>En cas de souci</h2>
+    </div>
+    <div class="card">
+      <p>N'hésitez surtout pas à me contacter directement en cas de question ou de problème, je suis joignable par téléphone ou message. Je ferai de mon mieux pour vous aider rapidement !</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  Merci de prendre soin de mon petit chez-moi — et profitez bien de Bayonne ! 🌶️
+</footer>
+
+</body>
+</html>
