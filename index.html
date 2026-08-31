@@ -137,12 +137,56 @@
 
   .card p:last-child { margin-bottom: 0; }
 
-  .card strong {
-    color: var(--ink);
-    font-weight: 600;
+  .card + .card {
+    margin-top: 1rem;
   }
 
-  /* ---- ALERT BOX ---- */
+  /* Sous-titre discret à l'intérieur d'une card (ex: sous-catégories des sorties) */
+  .card .sub-label {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--clay);
+    font-size: 1.02rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card ul.plain-list {
+    list-style: none;
+    margin-bottom: 0.8rem;
+  }
+
+  .card ul.plain-list:last-child { margin-bottom: 0; }
+
+  .card ul.plain-list li {
+    color: var(--ink-soft);
+    padding: 0.3rem 0 0.3rem 1.3rem;
+    position: relative;
+  }
+
+  .card ul.plain-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.85rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--clay-light);
+  }
+
+  .card ul.plain-list a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(196, 103, 58, 0.35);
+  }
+
+  .card ul.plain-list a:hover {
+    border-bottom-color: var(--clay);
+  }
+
+  /* ---- ALERT BOX (réservé aux points de sécurité / risque réel) ---- */
   .alert {
     background: var(--alert-bg);
     border: 2px solid var(--alert-border);
@@ -170,6 +214,11 @@
   }
 
   .alert p + p { margin-top: 0.5rem; }
+
+  .alert a {
+    color: var(--alert-red);
+    text-decoration: underline;
+  }
 
   /* ---- WIFI BOX ---- */
   .wifi-box {
@@ -231,35 +280,6 @@
     align-items: center;
     justify-content: center;
   }
-
-  /* ---- TIP BOX ---- */
-  .tip {
-    background: var(--sage-light);
-    border-left: 4px solid var(--sage);
-    border-radius: 0 12px 12px 0;
-    padding: 1rem 1.3rem;
-    margin-top: 1rem;
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-  }
-
-  .tip strong { color: var(--sage); }
-
-  /* ---- FOOD NOTE ---- */
-  .food-note {
-    background: var(--cream-dark);
-    border-radius: 14px;
-    padding: 1.3rem 1.5rem;
-    margin-top: 1rem;
-  }
-
-  .food-note p {
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .food-note p:last-child { margin-bottom: 0; }
 
   /* ---- FOOTER ---- */
   footer {
@@ -360,6 +380,7 @@
       <a href="#surf">🏄 Surf</a>
       <a href="#voisinage">🤫 Voisinage</a>
       <a href="#courses">🛒 Courses</a>
+      <a href="#sorties">🌊 Sorties locales</a>
       <a href="#depart">👋 Départ</a>
       <a href="#contact">📱 Contact</a>
     </div>
@@ -368,7 +389,7 @@
   <!-- INTRO -->
   <section>
     <div class="card">
-      <p>Hello et bienvenue ! Merci d'avoir choisi mon appartement pour votre séjour à Bayonne. C'est <strong>ma résidence principale</strong>, alors prenez-en soin comme si c'était la vôtre 🙏</p>
+      <p>Hello et bienvenue ! Merci d'avoir choisi mon appartement pour votre séjour à Bayonne. C'est ma résidence principale, alors prenez-en soin comme si c'était la vôtre 🙏</p>
       <p>Vous trouverez ici tout ce qu'il faut savoir pour profiter au mieux. Bonne lecture et bon séjour !</p>
     </div>
   </section>
@@ -382,16 +403,16 @@
     <div class="card">
       <p>Le code d'entrée de l'immeuble et le code de la boîte à clés vous seront communiqués par SMS.</p>
       <ol class="steps">
-        <li>Entrez dans l'immeuble avec le code. <strong>Fermez bien la porte derrière vous en tournant le loquet manuellement.</strong></li>
-        <li>Montez au 2ème étage — c'est la seule porte du palier, impossible de se tromper.</li>
+        <li>Entrez dans l'immeuble avec le code. Fermez bien la porte derrière vous en tournant le loquet manuellement.</li>
+        <li>Montez au 2ème étage : c'est la seule porte du palier, impossible de se tromper.</li>
         <li>La clé se trouve dans la boîte à clés, sur le meuble à chaussures dans l'entrée.</li>
-        <li>Ouvrez la porte, puis <strong>remettez immédiatement la clé dans la boîte à clés</strong>.</li>
-        <li>Pour le séjour, utilisez la <strong>clé disponible dans l'appartement</strong>, sur le plan de travail de la cuisine (porte-clé en liège).</li>
+        <li>Ouvrez la porte, puis remettez immédiatement la clé dans la boîte à clés.</li>
+        <li>Pour le séjour, utilisez la clé disponible dans l'appartement, sur le plan de travail de la cuisine (porte-clé en liège).</li>
       </ol>
     </div>
     <div class="alert">
-      <p>🚪 <strong>La porte de l'immeuble :</strong> pensez à toujours fermer le loquet manuellement — tournez-le derrière vous en entrant, et tournez le "rond" en sortant. C'est la seule sécurité de l'immeuble !</p>
-      <p>🔐 La clé dans la boîte à clés est une <strong>clé de secours</strong>. Gardez-la toujours dans la boîte pour éviter tout risque de se retrouver enfermé dehors (et d'appeler un serrurier !).</p>
+      <p>🚪 La porte de l'immeuble : pensez à toujours fermer le loquet manuellement. Tournez-le derrière vous en entrant, et tournez le "rond" en sortant. C'est la seule sécurité de l'immeuble !</p>
+      <p>🔐 La clé dans la boîte à clés est une clé de secours. Gardez-la toujours dans la boîte pour éviter tout risque de se retrouver enfermé dehors (et d'appeler un serrurier !).</p>
     </div>
   </section>
 
@@ -402,7 +423,7 @@
       <h2>Stationnement</h2>
     </div>
     <div class="card">
-      <p>Vous pouvez vous garer <strong>gratuitement</strong> juste en bas de l'immeuble, dans la rue. Facile !</p>
+      <p>Vous pouvez vous garer gratuitement juste en bas de l'immeuble, dans la rue. Facile !</p>
     </div>
   </section>
 
@@ -428,9 +449,9 @@
     </div>
     <div class="card">
       <ol class="steps">
-        <li>Allumez la TV avec <strong>la télécommande de la télé</strong> — la source est déjà réglée sur HDMI 2.</li>
-        <li>Allumez le décodeur Free, puis utilisez <strong>la télécommande du décodeur</strong> pour naviguer.</li>
-        <li>Netflix est disponible — faites-vous plaisir 🍿</li>
+        <li>Allumez la TV avec la télécommande de la télé, la source est déjà réglée sur HDMI 2.</li>
+        <li>Allumez le décodeur Orange, puis utilisez la télécommande du décodeur pour naviguer.</li>
+        <li>Netflix est disponible, faites-vous plaisir 🍿</li>
       </ol>
     </div>
   </section>
@@ -443,17 +464,11 @@
     </div>
     <div class="card">
       <p>La cuisine est équipée de tout le nécessaire, rien de compliqué. Sauf pour le lave-vaisselle, lisez bien ce qui suit :</p>
+      <p>N'hésitez pas à utiliser le lave-vaisselle régulièrement, le ballon d'eau chaude est petit (deux à trois douches max) donc ça permet de l'économiser.</p>
     </div>
     <div class="alert">
-      <p>🚰 <strong>Ne JAMAIS enlever le tuyau dans l'évier !</strong> C'est l'évacuation du lave-vaisselle. Le retirer provoquerait une inondation de la cuisine.</p>
-      <p>🫧 Le lave-vaisselle <strong>se remplit à la main par le haut</strong>. Il y a un tuyau sur le côté à brancher sur le mitigeur de l'évier.</p>
-    </div>
-    <div class="tip">
-      <strong>💡 Astuce :</strong> N'hésitez pas à utiliser le lave-vaisselle régulièrement — le ballon d'eau chaude est petit (deux à trois douches max), ça permet de l'économiser.
-    </div>
-    <div class="food-note">
-      <p>🥖 Vous êtes libres de consommer ce qu'il y a dans les placards !</p>
-      <p>En retour, merci de <strong>remplacer par des produits de qualité équivalente</strong> — j'achète du bio et du local. Si vous consommez du café, merci de remplacer par des <strong>capsules café noir Nespresso</strong>.</p>
+      <p>🚰 Ne JAMAIS enlever le tuyau dans l'évier ! C'est l'évacuation du lave-vaisselle. Le retirer provoquerait une inondation de la cuisine.</p>
+      <p>🫧 Le lave-vaisselle se remplit à la main par le haut. Il y a un tuyau sur le côté à brancher sur le mitigeur de l'évier.</p>
     </div>
   </section>
 
@@ -465,10 +480,7 @@
     </div>
     <div class="card">
       <p>Les draps sont sur le lit, les serviettes dans la salle de bain.</p>
-      <p>Il y a <strong>deux étagères et un tiroir vides</strong> à votre disposition dans la chambre pour ranger vos affaires. Merci de ne pas utiliser les autres rangements ni toucher à mes affaires personnelles 🙏</p>
-    </div>
-    <div class="tip">
-      <strong>💡 Le surmatelas chauffant :</strong> Un vrai bonheur pour les soirées fraîches ! La télécommande se trouve sur le côté droit du lit. Allumez-le 15-20 minutes avant le coucher pour un confort optimal. Pas besoin de chauffer la chambre.
+      <p>Il y a deux étagères et un tiroir vides à votre disposition dans la chambre pour ranger vos affaires. Merci de ne pas utiliser les autres rangements ni toucher à mes affaires personnelles 🙏</p>
     </div>
   </section>
 
@@ -479,9 +491,8 @@
       <h2>Buanderie & Poubelles</h2>
     </div>
     <div class="card">
-      <p><strong>Machine à laver :</strong> descendez au rez-de-chaussée, prenez la porte à votre gauche après les escaliers, puis continuez un demi-étage en dessous.</p>
-      <p><strong>Petit jardinet :</strong> en continuant de descendre à la cave, vous accédez à un petit jardin commun à l'immeuble. Plafond bas : attention à la tête ! Plafond bas : attention à la tête !</p>
-      <p><strong>Poubelles :</strong> les bacs de tri et d'ordures ménagères sont juste en bas de l'immeuble. Les conteneurs à verre se trouvent en face, de l'autre côté de la route.</p>
+      <p>Machine à laver : descendez au rez-de-chaussée, prenez la porte à votre gauche après les escaliers, puis continuez un demi-étage en dessous.</p>
+      <p>Poubelles : les bacs de tri et d'ordures ménagères sont juste en bas de l'immeuble. Les conteneurs à verre se trouvent en face, de l'autre côté de la route.</p>
     </div>
   </section>
 
@@ -492,7 +503,9 @@
       <h2>Plantes</h2>
     </div>
     <div class="card">
-      <p>Si vous y pensez, un petit arrosage des plantes sur le comptoir de la cuisine serait super apprécié !</p>
+      <p>Si vous y pensez et si les plantes en ont besoin, un petit arrosage de celles sur le comptoir de la cuisine serait super apprécié !</p>
+      <p>S'il a fait chaud plusieurs jours d'affilée, jetez aussi un œil aux aromatiques du balcon et arrosez-les si la terre est sèche.</p>
+      <p>Et n'hésitez pas à piocher dans ces mêmes aromatiques si vous en avez besoin pour cuisiner.</p>
     </div>
   </section>
 
@@ -503,8 +516,9 @@
       <h2>Surf</h2>
     </div>
     <div class="card">
-      <p>Vous êtes au Pays Basque, profitez-en ! La <strong>planche orange en mousse</strong> est à votre disposition.</p>
-      <p>En revanche, merci de <strong>ne pas utiliser les planches en dur</strong>.</p>
+      <p>Vous êtes au Pays Basque, profitez-en ! La planche orange en mousse est à votre disposition.</p>
+      <p>Attention, ce n'est pas une planche pour débuter : elle est petite et instable. Si vous débutez en surf et voulez vraiment passer un bon moment, mieux vaut prendre un cours et/ou louer une planche adaptée. C'est facile à trouver, il y a des loueurs et des écoles de surf sur toutes les plages d'Anglet.</p>
+      <p>En revanche, merci de ne pas utiliser les planches en dur.</p>
     </div>
   </section>
 
@@ -515,8 +529,11 @@
       <h2>Voisinage</h2>
     </div>
     <div class="card">
-      <p>L'immeuble est ancien et les murs sont fins — on entend tout ! Florian, le voisin juste en dessous, a un enfant de 4 ans. Merci de faire attention au bruit, surtout en soirée.</p>
-      <p>Fumer est autorisé <strong>uniquement sur le balcon</strong>, pas à l'intérieur.</p>
+      <p>L'immeuble est ancien et les murs sont fins, on entend tout ! Margaux, la voisine juste en dessous, entend tout ce qui se passe au-dessus. Merci de faire attention au bruit, en particulier aux pas lourds sur le parquet, pour son bien-être.</p>
+      <p>Fumer est autorisé uniquement sur le balcon, pas à l'intérieur.</p>
+    </div>
+    <div class="alert">
+      <p>🎉 Les soirées dans l'appartement ne sont pas possibles. Pour sortir et profiter d'une bonne ambiance, direction les bars du coin : voir la section "Sorties locales" un peu plus bas, il y a de quoi faire !</p>
     </div>
   </section>
 
@@ -527,9 +544,69 @@
       <h2>Courses</h2>
     </div>
     <div class="card">
-      <p><strong>Carrefour City Marinadour</strong> — 10 min à pied, ouvert tous les jours (même le dimanche) et tard en soirée.</p>
-      <p>Pour du bio et du local : <strong>L'Épicier Bio</strong> ou <strong>Épicerie Ressources</strong> (produits locaux).</p>
-      <p>Pour les plus grosses courses : <strong>Leclerc</strong>.</p>
+      <p>Carrefour City Marinadour, à 10 minutes à pied, ouvert tous les jours (même le dimanche) et tard en soirée.</p>
+      <p>Pour du bio et du local : L'Épicier Bio ou Épicerie Ressources (produits locaux).</p>
+      <p>Pour les plus grosses courses : Leclerc ou Carrefour BAB2.</p>
+      <p>Pour le shopping : la zone Pédebert à Hossegor, le centre commercial BAB2 à Anglet, ou les rues piétonnes de Biarritz.</p>
+    </div>
+  </section>
+
+  <!-- SORTIES LOCALES -->
+  <section id="sorties">
+    <div class="section-header">
+      <div class="section-icon">🌊</div>
+      <h2>Sorties locales</h2>
+    </div>
+
+    <div class="card">
+      <span class="sub-label">Événements locaux</span>
+      <p>Le compte Instagram <strong>@goazen.info</strong> recense les événements des Landes et du Pays Basque, du jeudi au dimanche.</p>
+    </div>
+
+    <div class="card">
+      <span class="sub-label">Pour boire un verre</span>
+      <ul class="plain-list">
+        <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJWyaEHO1qUQ0R1hWUOFfaNTg" target="_blank" rel="noopener">La Chope</a> (Anglet, bar uniquement), pub local avec vue sur l'océan, ambiance surf et sunset</li>
+        <li>Cabanes de plage (avril à octobre) : <a href="https://www.google.com/maps/place/?q=place_id:ChIJ8VlmVC1rUQ0Rd4MsZ4qY-yg" target="_blank" rel="noopener">Ozéanoa</a> pour l'ambiance et la nourriture, <a href="https://www.google.com/maps/place/?q=place_id:ChIJZ98pSupqUQ0Rs21PT0bhTOI" target="_blank" rel="noopener">Kostaldea</a> pour la vue imprenable</li>
+        <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJHY0yrtAVUQ0RU_fjYu99zxo" target="_blank" rel="noopener">Chez Erik</a>, guinguette musicale</li>
+        <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJqcuq8ChrUQ0R-lJEzVLrDp0" target="_blank" rel="noopener">Halles de Biarritz</a></li>
+        <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJH0OqlxpbUQ0Rum7lZZ_KArw" target="_blank" rel="noopener">Monsieur Mouette</a>, Capbreton</li>
+        <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJGbkIxY1AUQ0RXBh_Iwhi_mk" target="_blank" rel="noopener">Kubata</a>, Bayonne</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="sub-label">Café local du matin</span>
+      <ul class="plain-list">
+        <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJb4FmwGRrUQ0RetA6te-7EWg" target="_blank" rel="noopener">Anaiak</a>, Anglet</li>
+        <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJWXpPxldrUQ0RHEH54BArUko" target="_blank" rel="noopener">Les Trois Petits Cochons</a></li>
+        <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJgYaWC-xqUQ0RDIBKm0UZ5b8" target="_blank" rel="noopener">Lagunak</a>, Chambre d'Amour</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="sub-label">Lunch / Dîner</span>
+      <ul class="plain-list">
+        <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJwSn6r8dBUQ0RNNOyWqMntuk" target="_blank" rel="noopener">Cidrerie Basque Kupela</a>, Bayonne</li>
+        <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJKWEDIWNbUQ0RDfFGL62R1Js" target="_blank" rel="noopener">Moules Frites Chez Minus</a>, Capbreton</li>
+        <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJ0RHMqu1qUQ0Rpdr_7FWzPDQ" target="_blank" rel="noopener">Le Lieu des Pêcheurs</a></li>
+        <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJ8VlmVC1rUQ0Rd4MsZ4qY-yg" target="_blank" rel="noopener">Ozeanoa</a>, Anglet, lunch ou tapas le soir</li>
+        <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJe1K6UShrUQ0R45kWs6g-IFA" target="_blank" rel="noopener">Les Contrebandiers</a>, Biarritz</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="sub-label">Pizza</span>
+      <ul class="plain-list">
+        <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJUYiNfpRqUQ0RLdEFhAA40CY" target="_blank" rel="noopener">Pizz'after Beach</a></li>
+        <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJx4vyvL8VUQ0R2VuQJz79kt0" target="_blank" rel="noopener">Trallalla</a>, Anglet</li>
+      </ul>
+    </div>
+
+    <div class="alert">
+      <p>🏊 Baignade à l'océan : restez toujours entre les drapeaux et surveillé(e) par les sauveteurs. Les horaires de surveillance changent selon la plage et la période (ex. Sables d'Or : 12h–18h jusqu'au 5 juillet, puis 10h30–19h en plein été).</p>
+      <p>Horaires officiels par plage : <a href="https://www.anglet.fr/mes-demarches/plages/surveillance-des-plages/" target="_blank" rel="noopener">anglet.fr, surveillance des plages</a>. Infos en temps réel : application Kalilo.</p>
+      <p>Webcams des plages d'Anglet en direct : <a href="https://www.anglet-tourisme.com/fr/pratique/webcams.php" target="_blank" rel="noopener">anglet-tourisme.com, webcams</a>.</p>
     </div>
   </section>
 
